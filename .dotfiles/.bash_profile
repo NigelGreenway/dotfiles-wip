@@ -1,4 +1,4 @@
-export PATH=~/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/sbin:/.rvm/bin:/.composer/vendor/bini:/Users/Nigel/pear/bin:$PATH
+export PATH=~/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/sbin:/Users/Nigel/.composer/vendor/bin:/Users/Nigel/pear/bin:$PATH
 EDITOR=subl
 
 source ~/.rvm/scripts/rvm
