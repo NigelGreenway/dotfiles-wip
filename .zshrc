@@ -1,5 +1,5 @@
 # Exports {{{
-export PATH=~/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/sbin:$HOME/Autocomplete:$HOME/.composer/vendor/bin:$HOME/pear/bin:$PATH
+export PATH=~/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/sbin:$HOME/.composer/vendor/bin:$HOME/pear/bin:$PATH
 export EDITOR=subl
 
 if [[ -f /usr/local/share/doc/task/scripts/zsh/_task ]]
@@ -157,6 +157,7 @@ function git--report {
     if ! [[ -d $1 ]]; then
         echo 'Invalid directory path given...'
         return 1
+    ME
     fi
     if ! [[ -z $2 ]]; then
         for f in $(find $1 -maxdepth $2 -name .git -type d -prune)
@@ -206,3 +207,8 @@ function git--getLastCommitHash() {
 }
 # }}
 # }}}
+
+for file in $(find -L $HOME/Autocomplete -type f)
+do
+    source $file
+done
