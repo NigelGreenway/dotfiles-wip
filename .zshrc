@@ -173,17 +173,16 @@ function git--report {
     if ! [[ -d $1 ]]; then
         echo 'Invalid directory path given...'
         return 1
-    ME
     fi
     if ! [[ -z $2 ]]; then
         for f in $(find $1 -maxdepth $2 -name .git -type d -prune)
         do
-            if [[ $(find $f -type d | grep 'vendor' ) ]]
+            if [ $(find $f -type d | grep 'vendor' ) ]
             then
                 continue
             fi
             cd "$f/.."
-            if ! [[ $(git status | grep 'nothing to commit') ]]
+            if ! [ $(git status | grep 'nothing to commit') ]
             then
                 echo "$(pwd) has amended & uncommitted changes"
             fi
@@ -191,12 +190,12 @@ function git--report {
     else
         for f in $(find $1 -name .git -type d -prune)
         do
-            if [[ $(find $f -type d | grep 'vendor' ) ]]
+            if [ $(find $f -type d | grep 'vendor' ) ]
             then
                 continue
             fi
             cd "$f/.."
-            if ! [[ $(git status | grep 'nothing to commit') ]]
+            if ! [ $(git status | grep 'nothing to commit') ]
             then
                 echo "$(pwd) has amended & uncommitted changes"
             fi
