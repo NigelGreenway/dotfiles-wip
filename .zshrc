@@ -16,9 +16,10 @@ alias nginx-s="/usr/bin/nginx"
 alias nginx-r="/usr/bin/nginx -s stop && nginx-s"
 alias nginx-e="nginx-s -t"
 ## Autocomplete
-complete -W "$(teamocil --list)" teamocil
-complete -W "`awk '{ print $2 }' /etc/hosts`" ping
-complete -W "`awk '{ print $2 }' /etc/hosts`" ssh
+autoload -U compinit && compinit
+zmodload -i zsh/complist
+autoload predict-on
+predict-on
 ## PHP
 alias phplint='find . -name "*.php" -exec php -l {} \; | grep "Parse error"'
 # }}}
