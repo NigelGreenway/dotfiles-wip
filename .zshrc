@@ -223,7 +223,5 @@ function git--getLastCommitHash() {
 # }}
 # }}}
 
-for file in $(find -L $HOME/Autocomplete -type f)
-do
-    source $file
-done
+fpath=(~/.zsh $fpath)
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
