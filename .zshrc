@@ -1,10 +1,6 @@
 # Exports {{{
 export PATH=~/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/sbin:$HOME/.composer/vendor/bin:$HOME/pear/bin:$PATH
 export EDITOR=subl
-
-if [[ -f /usr/local/share/doc/task/scripts/zsh/_task ]]
-    export /usr/local/share/doc/task/scripts/zsh/_task
-end
 # }}}
 
 # Alias {{{
