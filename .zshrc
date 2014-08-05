@@ -518,3 +518,8 @@ function postexec {
 # brew install zsh-syntax-highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # }}}
+
+if [[ "$TERM" != "screen-256color" ]]; then
+  tmux -S /var/tmux/$USER new-session -A -s "$USER"
+  clear
+fi
