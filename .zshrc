@@ -517,6 +517,7 @@ function postexec {
 # Zsh Sourced {{{
 # brew install zsh-syntax-highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.phpbrew/bashrc
 # }}}
 
 if [[ "$TERM" != "screen-256color" ]]; then
