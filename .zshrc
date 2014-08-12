@@ -521,6 +521,6 @@ source $HOME/.phpbrew/bashrc
 # }}}
 
 if [[ "$TERM" != "screen-256color" ]]; then
-  tmux -S /var/tmux/$USER new-session -A -s "$USER"
+  tmux
   clear
 fi
