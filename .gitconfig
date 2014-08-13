@@ -31,9 +31,11 @@
 	stat-d = ls-files --modified --deleted --exclude-standard
 	aa = add -A
 	s = status
-	c = commit -m
+	c = commit
+    ci = commit -m
 	ca = commit -am
 	ss = stash save
+    sl = stash list
 	u = push
 	d = pull
 	prep = diff --cached
