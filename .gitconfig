@@ -30,6 +30,7 @@
     undo-commit = reset --soft HEAD^
     stat-d = ls-files --modified --deleted --exclude-standard
     aa = add -A
+    a = add -p
     s = status
     c = commit
     ci = commit -m
