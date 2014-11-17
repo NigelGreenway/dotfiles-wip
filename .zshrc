@@ -191,6 +191,67 @@ sfserve() { sf server:run 0.0.0.0:$1; }
 gsm() { $EDITOR $(git status --short | awk '$1 ~ /^MM/ { print $2 }'); }
 gsn() { $EDITOR $(git status --short | awk '$1 ~ /^??/ { print $2 }'); }
 gsa() { $EDITOR $(git status --short | awk '$1 { print $2 }'); }
+__='
+  Parse files before commiting
+'
+gitLint() {
+
+  replace=$1
+
+  if git rev-parse --verify HEAD >/dev/null 2>&1
+  then
+      against=HEAD
+  else
+      # Initial commit: diff against an empty tree object
+      against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
+  fi
+
+IFS='
+'
+  # get a list of staged files
+  for line in $(git diff-index --cached --full-index $against)
+  do
+      # echo "$line"
+      # split needed values
+      sha=$(echo $line | cut -d' ' -f4)
+      temp=$(echo $line | cut -d' ' -f5)
+      fileStatus=$(echo $temp | cut -d$'\t' -f1)
+      filename=$(echo $temp | cut -d$'\t' -f2)
+
+      if [[ ! -z $replace ]]
+      then
+        filename="${filename/$replace/}"
+      fi
+
+      # file extension
+      ext=$(echo $filename | sed 's/^.*\.//')
+
+      # do not check deleted files
+      if [ $status = "D" ]
+      then
+          continue
+      fi
+
+      # files with php extension
+      if [ $ext = "php" ]
+      then
+          php -l $filename
+      fi
+
+      # files with ruby extension
+      if [ $ext = "rb" ]
+      then
+          ruby -c $filename
+      fi
+
+      # files with python extension
+      if [ $ext = "py" ]
+      then
+          python -m py_compile $filename
+      fi
+
+  done
+}
 
 __='
   Get a list of git repositories that are dirty
