@@ -84,7 +84,7 @@ alias mysql-stop="/usr/local/cellar/mysql/$mysqlVersionNumber/support-files/mysq
 alias mysql-start="/usr/local/cellar/mysql/$mysqlVersionNumber/support-files/mysql.server start"
 
 ## Git
-alias conf="$EDITOR `git s|grep 'both modified'|cut -d: -f2`"
+alias conflicts="$EDITOR `git s|grep 'both modified'|cut -d: -f2`"
 # }}}
 
 # Miscellaneous {{{
