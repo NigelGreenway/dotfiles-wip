@@ -25,7 +25,6 @@ export dotfiles=$HOME/Documents/Projects/Dotfiles
 export freshinstall=$HOME/Documents/Fresh\ Install
 ## }}
 # }}}
-eval "$(phpenv init -)"
 # Network {{{
 # }}}
 
@@ -45,8 +44,6 @@ function tmuxkill() {
   tmux kill-session -t $1
 }
 # }}}
-
-eval "$(phpenv init -)"
 
 # Alias' {{{
 ## General
