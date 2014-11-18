@@ -20,7 +20,7 @@ export LS_COLORS=Gxfxcxdxbxegedabagacad
 export ghuser="smilinmonki666"
 ## }}
 ## quickswitch {{
-export sites=/Volumes/Sites/
+export sites=/Volumes/Sites
 export dotfiles=$HOME/Documents/Projects/Dotfiles
 export freshinstall=$HOME/Documents/Fresh\ Install
 ## }}
