@@ -23,6 +23,7 @@ export ghuser="smilinmonki666"
 export sites=/Volumes/Sites
 export dotfiles=$HOME/Documents/Projects/Dotfiles
 export freshinstall=$HOME/Documents/Fresh\ Install
+export vi=vim
 ## }}
 # }}}
 # Network {{{
