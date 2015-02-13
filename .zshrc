@@ -332,20 +332,8 @@ function git--report {
 
 function git--count() { git diff $1 --numstat | wc -l }
 
-function git--getLastCommitHash() {    
-    if $(is_empty $1); then
-          STEP=1
-      else
-          STEP=$1
-    fi
-    
-    local HASH=`git log --format="%H" -n "$STEP"`
-    echo "$HASH" \
-        | cut -c1-8
-}
-
 __='
-  
+
 '
 function gbc() { $EDITOR grealpath $(git show --name-only $1|cut -d' ' -f3) }
 # }}}
