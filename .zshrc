@@ -148,16 +148,6 @@ switchserv() {
 }
 
 __='
-  Bench marking via apache hosted sites
-
-  $1 int      Amount of requests thrown at the site
-  $2 string   URL of site for benchmarking
-'
-apache-bm(){
-    "ab -n $1 -c 5 $2"
-}
-
-__='
   Create instance of php websever with chosen port
   @param integer Port of server (Default=8000)
   $param string  Web directory of server
