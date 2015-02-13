@@ -2,7 +2,7 @@
     name = Nigel Greenway
     email = nigel_greenway@me.com
 [core]
-    excludesfile = /Users/Nigel/.gitignore_global
+    excludesfile = ~/.gitignore_global
     precomposeunicode = true
     editor = vim
 [difftool "sublime"]
