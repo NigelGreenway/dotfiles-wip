@@ -17,7 +17,7 @@ export CLICOLOR=1
 export LSCOLORS=Gxfxcxdxbxegedabagacad
 export LS_COLORS=Gxfxcxdxbxegedabagacad
 ## Users {{
-export ghuser="smilinmonki666"
+export ghuser="NigelGreenway"
 ## }}
 ## quickswitch {{
 export sites=/Volumes/Sites
