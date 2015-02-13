@@ -57,7 +57,7 @@ alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias localip='ipconfig getifaddr en0'
 alias ct="ctags -R --exclude=.git --exclude=node_modules"
 alias irc="irssi"
-alias mysql="mysql -uroot -p"
+alias mysql-cli="mysql -uroot -p"
 ## Vagrant
 alias vs="vagrant suspend"
 alias vu="vagrant up"
