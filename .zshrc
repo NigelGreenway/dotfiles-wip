@@ -77,6 +77,10 @@ alias nginx-s="/usr/bin/nginx"
 alias nginx-r="/usr/bin/nginx -s stop && nginx-s"
 alias nginx-e="nginx-s -t"
 ## MySQL
+mysqlVersion() {
+  version=`mysql --version|awk '{split($0,array," ")} END{print array[5]}'`
+  echo "$version"|awk '{split($0,array,",")} END{print array[1]}'
+}
 mysqlVersionNumber=`mysqlVersion`
 alias mysql-stop="/usr/local/cellar/mysql/$mysqlVersionNumber/support-files/mysql.server stop"
 alias mysql-start="/usr/local/cellar/mysql/$mysqlVersionNumber/support-files/mysql.server start"
@@ -86,12 +90,6 @@ alias conflicts="$EDITOR `git s|grep 'both modified'|cut -d: -f2`"
 # }}}
 
 # Miscellaneous {{{
-## MySQL {{
-mysqlVersion() {
-  version=`mysql --version|awk '{split($0,array," ")} END{print array[5]}'`
-  echo "$version"|awk '{split($0,array,",")} END{print array[1]}'
-}
-##}}
 ## System {{
 capture--save() {
     screencapture -iW ~/Desktop/screen.png
