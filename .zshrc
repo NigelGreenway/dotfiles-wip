@@ -17,7 +17,7 @@ export CLICOLOR=1
 export LSCOLORS=Gxfxcxdxbxegedabagacad
 export LS_COLORS=Gxfxcxdxbxegedabagacad
 ## Users {{
-export ghuser="smilinmonki666"
+export ghuser="NigelGreenway"
 ## }}
 ## quickswitch {{
 export sites=/Volumes/Sites
@@ -57,7 +57,7 @@ alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias localip='ipconfig getifaddr en0'
 alias ct="ctags -R --exclude=.git --exclude=node_modules"
 alias irc="irssi"
-alias mysql="mysql -uroot -p"
+alias mysql-cli="mysql -uroot -p"
 ## Vagrant
 alias vs="vagrant suspend"
 alias vu="vagrant up"
@@ -146,16 +146,6 @@ switchserv() {
 }
 
 __='
-  Bench marking via apache hosted sites
-
-  $1 int      Amount of requests thrown at the site
-  $2 string   URL of site for benchmarking
-'
-apache-bm(){
-    "ab -n $1 -c 5 $2"
-}
-
-__='
   Create instance of php websever with chosen port
   @param integer Port of server (Default=8000)
   $param string  Web directory of server
@@ -187,10 +177,59 @@ sfserve() { sf server:run 0.0.0.0:$1; }
 gsm() { $EDITOR $(git status --short | awk '$1 ~ /^MM/ { print $2 }'); }
 gsn() { $EDITOR $(git status --short | awk '$1 ~ /^??/ { print $2 }'); }
 gsa() { $EDITOR $(git status --short | awk '$1 { print $2 }'); }
+
 __='
-  Parse files before commiting
+  Lint files that are unstaged
 '
-gitLint() {
+gitLintU() {
+  for line in $(git diff-index HEAD|cut -d$'\t' -f2)
+  do
+      # echo "$line"
+      # split needed values
+      sha=$(echo $line | cut -d' ' -f4)
+      temp=$(echo $line | cut -d' ' -f5)
+      fileStatus=$(echo $temp | cut -d$'\t' -f1)
+      filename=$(echo $temp | cut -d$'\t' -f2)
+
+      if [[ ! -z $replace ]]
+      then
+        filename="${filename/$replace/}"
+      fi
+
+      # file extension
+      ext=$(echo $filename | sed 's/^.*\.//')
+
+      # do not check deleted files
+      if [ $status = "D" ]
+      then
+          continue
+      fi
+
+      # files with php extension
+      if [ $ext = "php" ]
+      then
+          php -l $filename
+      fi
+
+      # files with ruby extension
+      if [ $ext = "rb" ]
+      then
+          ruby -c $filename
+      fi
+
+      # files with python extension
+      if [ $ext = "py" ]
+      then
+          python -m py_compile $filename
+      fi
+  done
+
+}
+
+__='
+  Line files that are staged
+'
+gitLintS() {
 
   replace=$1
 
@@ -291,20 +330,8 @@ function git--report {
 
 function git--count() { git diff $1 --numstat | wc -l }
 
-function git--getLastCommitHash() {    
-    if $(is_empty $1); then
-          STEP=1
-      else
-          STEP=$1
-    fi
-    
-    local HASH=`git log --format="%H" -n "$STEP"`
-    echo "$HASH" \
-        | cut -c1-8
-}
-
 __='
-  
+
 '
 function gbc() { $EDITOR grealpath $(git show --name-only $1|cut -d' ' -f3) }
 # }}}
