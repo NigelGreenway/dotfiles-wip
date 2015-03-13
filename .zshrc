@@ -179,6 +179,23 @@ gsm() { $EDITOR $(git status --short | awk '$1 ~ /^MM/ { print $2 }'); }
 gsn() { $EDITOR $(git status --short | awk '$1 ~ /^??/ { print $2 }'); }
 gsa() { $EDITOR $(git status --short | awk '$1 { print $2 }'); }
 
+
+function gitBranchCommits()
+{
+    BRANCH=$(git branch|grep '*'|awk -F' ' '{ print $2 }')
+
+    git show-branch|grep $BRANCH
+
+    TOTAL_LINES=$(git show-branch|grep $BRANCH|wc -l)
+
+    echo "Total COMMITS: " $TOTAL_LINES
+}
+
+__='
+  ...
+'
+alias gitPrep="condTest && git prep && gitLintS"
+
 __='
   Lint files that are unstaged
 '
