@@ -2,3 +2,5 @@
 .tags
 .tags*
 .idea
+.vagrant
+scratch
