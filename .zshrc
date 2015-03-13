@@ -58,6 +58,7 @@ alias localip='ipconfig getifaddr en0'
 alias ct="ctags -R --exclude=.git --exclude=node_modules"
 alias irc="irssi"
 alias mysql-cli="mysql -uroot -p"
+alias pretty-cat="highlight -O ansi"
 ## Vagrant
 alias vs="vagrant suspend"
 alias vu="vagrant up"
