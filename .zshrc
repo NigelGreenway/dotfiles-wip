@@ -46,6 +46,13 @@ function tmuxkill() {
 }
 # }}}
 
+if [ -f ~/localconfig.sh ];
+then
+	source ~/localconfig.sh
+else
+	echo 'Not found!?'	
+fi
+
 # Alias' {{{
 ## General
 alias r="source ~/.zshrc && clear"
