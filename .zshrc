@@ -130,6 +130,20 @@ function f() {
   find . -name "$1"
 }
 
+__='
+Find a running process
+'
+fproc() {
+    ps aux|grep "$1"
+}
+
+__='
+Kill a running process by its process ID
+'
+k() {
+    kill -9 $1
+}
+
 # Create a new directory and enter it
 function md() {
   mkdir -p "$@" && cd "$@"
