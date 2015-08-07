@@ -7,7 +7,7 @@
 # }}}
 
 # Exports {{{
-export PATH=~/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/sbin:$HOME/.composer/vendor/bin:$HOME/pear/bin:$HOME/.phpenv/bin:$PATH
+export PATH=~/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/sbin:$HOME/.composer/vendor/bin:$HOME/pear/bin:$HOME/.phpenv/bin:/usr/local/go/bin:$PATH
 export PATH="/usr/local/share/npm/bin:$PATH" # Fixes issue where updating NPM causes wrong bin path to be picked up
 export NETWORK_LOCATION="$(/usr/sbin/scselect 2>&1 | egrep '^ \* ' | sed 's:.*(\(.*\)):\1:')" # Use for network location specific functions if needed
 export GREP_OPTIONS='--color=auto'
