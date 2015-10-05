@@ -144,6 +144,13 @@ k() {
     kill -9 $1
 }
 
+__='
+Google in terminal
+'
+ggl() {
+    lynx "http://google.co.uk/search?q=$1"
+}
+
 # Create a new directory and enter it
 function md() {
   mkdir -p "$@" && cd "$@"
