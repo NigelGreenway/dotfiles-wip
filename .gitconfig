@@ -43,3 +43,5 @@
     d = pull
     prep = diff --cached
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+[rerere]
+	enabled = true
