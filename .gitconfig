@@ -5,6 +5,8 @@
     excludesfile = ~/.gitignore_global
     precomposeunicode = true
     editor = vim
+[clean]
+    requireForce = false
 [difftool "sublime"]
     cmd = subl -w $LOCAL $REMOTE
 [color]
