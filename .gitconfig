@@ -1,6 +1,6 @@
 [user]
     name = Nigel Greenway
-    email = nigel_greenway@me.com
+    email = github@futurepixels.co.uk
 [core]
     excludesfile = ~/.gitignore_global
     precomposeunicode = true
