@@ -1,0 +1,29 @@
+
+###
+# Set up bindings
+bind "set mark-symlinked-directories on"
+bind "set completion-ignore-case on"
+bind "set completion-map-case on"
+bind "set show-all-if-ambiguous on"
+
+
+###
+# Set up bash options
+
+## Better directory traversing
+shopt -s autocd
+shopt -s cdable_vars
+shopt -s dirspell
+shopt -s cdspell
+
+## Allow redrawing of teminal session
+shopt -s checkwinsize
+
+# force colours
+force_color_prompt=yes
+
+# use colour prompt
+color_prompt=yes
+
+
+CDPATH=$CDPATH:~/Sites

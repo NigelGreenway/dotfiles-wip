@@ -1,0 +1,4 @@
+
+###
+# Some simple shortcuts
+alias r='source ~/.bashrc'
