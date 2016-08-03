@@ -9,5 +9,6 @@ set noswapfile
 set cursorline
 hi CursorLine cterm=NONE ctermbg=black
 
+set rtp+=~/.fzf
 
 autocmd BufNewFile,BufRead *.json set ft=javascript

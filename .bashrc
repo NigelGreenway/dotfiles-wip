@@ -22,7 +22,7 @@ export BASH_IT_THEME='bakke'
 # export BASH_IT_REMOTE='bash-it'
 
 # Your place for hosting Git repos. I use this for private repos.
-export GIT_HOSTING='git@git.domain.com'
+export GIT_HOSTING='git@github.com'
 
 # Don't check mail when opening terminal.
 unset MAILCHECK
@@ -42,3 +42,4 @@ export SCM_CHECK=true
 
 # Load Bash It
 source $BASH_IT/bash_it.sh
+source $HOME/vendor/load.sh
