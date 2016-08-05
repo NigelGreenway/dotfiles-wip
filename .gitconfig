@@ -11,6 +11,7 @@
     cmd = subl -w $LOCAL $REMOTE
 [color]
     ui = true
+    status = always
 [color "status"]
     added = green
     changed = blue
